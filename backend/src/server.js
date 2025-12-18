@@ -5,6 +5,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const { connectDB } = require("./config/db");
+const productRoutes = require("./routes/productRoutes");
 
 require("dotenv").config();
 
@@ -29,6 +30,9 @@ server.get("/api/health", (req, res) => {
     time: new Date().toLocaleString("zh-TW"),
   });
 });
+
+// 商品相關路由
+server.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT;
 
