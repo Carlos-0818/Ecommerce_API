@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const { connectDB } = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 require("dotenv").config();
 
@@ -37,6 +38,9 @@ server.use("/api/products", productRoutes);
 
 // Auth 相關路由
 server.use("/api/auth", authRoutes);
+
+// 使用者資訊相關路由
+server.use("/api/user", userRoutes);
 
 const PORT = process.env.PORT;
 
