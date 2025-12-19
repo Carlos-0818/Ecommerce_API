@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const { connectDB } = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 require("dotenv").config();
 
@@ -33,6 +34,9 @@ server.get("/api/health", (req, res) => {
 
 // 商品相關路由
 server.use("/api/products", productRoutes);
+
+// Auth 相關路由
+server.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT;
 
