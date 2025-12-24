@@ -8,6 +8,7 @@ const { connectDB } = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 require("dotenv").config();
 
@@ -41,6 +42,9 @@ server.use("/api/auth", authRoutes);
 
 // 使用者資訊相關路由
 server.use("/api/user", userRoutes);
+
+// 訂單相關路由
+server.use("/api/orders", orderRoutes);
 
 const PORT = process.env.PORT;
 
